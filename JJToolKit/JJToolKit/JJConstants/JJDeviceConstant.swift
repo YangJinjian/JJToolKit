@@ -29,5 +29,7 @@ let is55Inch = kResolution == CGSize(width: 1242, height: 2208)
 let is58Inch = kResolution == CGSize(width: 1125, height: 2436)
 let is61Inch = kResolution == CGSize(width: 828, height: 1792)
 let is65Inch = kResolution == CGSize(width: 1242, height: 2688)
+// 判断是否为全面屏
+let isFullScreenDevice = is58Inch || is61Inch || is65Inch
 // 状态栏
 let kStatusBarHeight = UIApplication.shared.statusBarFrame.size.height

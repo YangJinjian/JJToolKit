@@ -12,7 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let image = UIImage(named: "test_mt") {
+            let ad = JJAdLauncher.shared.launch(adImage: image, waitTime: 3, canSkip: true, canTouch: true)
+            JJAdLauncher.shared.show(ad: ad)
+        }
     }
 
 
