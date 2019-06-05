@@ -12,9 +12,11 @@
 		2FF9DB6422A763CC00307460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6222A763CC00307460 /* Main.storyboard */; };
 		2FF9DB6622A763CD00307460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6522A763CD00307460 /* Assets.xcassets */; };
 		2FF9DB6922A763CD00307460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6722A763CD00307460 /* LaunchScreen.storyboard */; };
+		46603BB133095CA5B854A3BD /* Pods_JJToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		130C7A673EAB1C496A87968B /* Pods-JJToolKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.release.xcconfig"; sourceTree = "<group>"; };
 		2FF9DB5B22A763CC00307460 /* JJToolKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJToolKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF9DB5E22A763CC00307460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FF9DB6022A763CC00307460 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		2FF9DB6522A763CD00307460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FF9DB6822A763CD00307460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FF9DB6A22A763CD00307460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7213080577E5E6BAB6FA1D6C /* Pods-JJToolKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.debug.xcconfig"; sourceTree = "<group>"; };
+		DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46603BB133095CA5B854A3BD /* Pods_JJToolKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022AC6564D4C358BC780A2E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7213080577E5E6BAB6FA1D6C /* Pods-JJToolKit.debug.xcconfig */,
+				130C7A673EAB1C496A87968B /* Pods-JJToolKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2FF9DB5222A763CC00307460 = {
 			isa = PBXGroup;
 			children = (
 				2FF9DB5D22A763CC00307460 /* JJToolKit */,
 				2FF9DB5C22A763CC00307460 /* Products */,
+				022AC6564D4C358BC780A2E9 /* Pods */,
+				42FFE1E2B171584C90EC6CAE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +71,37 @@
 			isa = PBXGroup;
 			children = (
 				2FF9DB5E22A763CC00307460 /* AppDelegate.swift */,
-				2FF9DB6022A763CC00307460 /* ViewController.swift */,
-				2FF9DB6222A763CC00307460 /* Main.storyboard */,
+				2FF9DB7122A765AA00307460 /* ViewController */,
+				2FF9DB7022A7657700307460 /* UI */,
 				2FF9DB6522A763CD00307460 /* Assets.xcassets */,
-				2FF9DB6722A763CD00307460 /* LaunchScreen.storyboard */,
 				2FF9DB6A22A763CD00307460 /* Info.plist */,
 			);
 			path = JJToolKit;
+			sourceTree = "<group>";
+		};
+		2FF9DB7022A7657700307460 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2FF9DB6222A763CC00307460 /* Main.storyboard */,
+				2FF9DB6722A763CD00307460 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2FF9DB7122A765AA00307460 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2FF9DB6022A763CC00307460 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		42FFE1E2B171584C90EC6CAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FF9DB6D22A763CD00307460 /* Build configuration list for PBXNativeTarget "JJToolKit" */;
 			buildPhases = (
+				F63F0176DB450B8CE60E0474 /* [CP] Check Pods Manifest.lock */,
 				2FF9DB5722A763CC00307460 /* Sources */,
 				2FF9DB5822A763CC00307460 /* Frameworks */,
 				2FF9DB5922A763CC00307460 /* Resources */,
+				478C24E146B2B1F5BF6A3CBB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +171,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		478C24E146B2B1F5BF6A3CBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F63F0176DB450B8CE60E0474 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JJToolKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FF9DB5722A763CC00307460 /* Sources */ = {
@@ -280,11 +369,13 @@
 		};
 		2FF9DB6E22A763CD00307460 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7213080577E5E6BAB6FA1D6C /* Pods-JJToolKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98BH637KF5;
 				INFOPLIST_FILE = JJToolKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,17 +383,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qingdaonews.JJToolKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2FF9DB6F22A763CD00307460 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 130C7A673EAB1C496A87968B /* Pods-JJToolKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98BH637KF5;
 				INFOPLIST_FILE = JJToolKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qingdaonews.JJToolKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
