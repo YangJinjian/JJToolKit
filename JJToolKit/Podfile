@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
+use_frameworks!
+inhibit_all_warnings!
+
+target 'JJToolKit' do
+    pod 'SnapKit', '~> 4.2.0'  # 使用代码进行AutoLayout布局
+end
