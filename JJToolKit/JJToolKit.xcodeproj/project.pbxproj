@@ -12,6 +12,8 @@
 		2FF9DB6422A763CC00307460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6222A763CC00307460 /* Main.storyboard */; };
 		2FF9DB6622A763CD00307460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6522A763CD00307460 /* Assets.xcassets */; };
 		2FF9DB6922A763CD00307460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6722A763CD00307460 /* LaunchScreen.storyboard */; };
+		2FF9DB7422A7671200307460 /* JJCommonConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7322A7671200307460 /* JJCommonConstant.swift */; };
+		2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7522A7683A00307460 /* JJDeviceConstant.swift */; };
 		46603BB133095CA5B854A3BD /* Pods_JJToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,8 @@
 		2FF9DB6522A763CD00307460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FF9DB6822A763CD00307460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FF9DB6A22A763CD00307460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FF9DB7322A7671200307460 /* JJCommonConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonConstant.swift; sourceTree = "<group>"; };
+		2FF9DB7522A7683A00307460 /* JJDeviceConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDeviceConstant.swift; sourceTree = "<group>"; };
 		7213080577E5E6BAB6FA1D6C /* Pods-JJToolKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.debug.xcconfig"; sourceTree = "<group>"; };
 		DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,6 +74,7 @@
 		2FF9DB5D22A763CC00307460 /* JJToolKit */ = {
 			isa = PBXGroup;
 			children = (
+				2FF9DB7222A766AA00307460 /* JJConstants */,
 				2FF9DB5E22A763CC00307460 /* AppDelegate.swift */,
 				2FF9DB7122A765AA00307460 /* ViewController */,
 				2FF9DB7022A7657700307460 /* UI */,
@@ -94,6 +99,15 @@
 				2FF9DB6022A763CC00307460 /* ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2FF9DB7222A766AA00307460 /* JJConstants */ = {
+			isa = PBXGroup;
+			children = (
+				2FF9DB7322A7671200307460 /* JJCommonConstant.swift */,
+				2FF9DB7522A7683A00307460 /* JJDeviceConstant.swift */,
+			);
+			path = JJConstants;
 			sourceTree = "<group>";
 		};
 		42FFE1E2B171584C90EC6CAE /* Frameworks */ = {
@@ -226,6 +240,8 @@
 			files = (
 				2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */,
 				2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */,
+				2FF9DB7422A7671200307460 /* JJCommonConstant.swift in Sources */,
+				2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
