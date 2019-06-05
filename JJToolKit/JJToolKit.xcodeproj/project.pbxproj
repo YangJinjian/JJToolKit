@@ -71,13 +71,29 @@
 			isa = PBXGroup;
 			children = (
 				2FF9DB5E22A763CC00307460 /* AppDelegate.swift */,
-				2FF9DB6022A763CC00307460 /* ViewController.swift */,
-				2FF9DB6222A763CC00307460 /* Main.storyboard */,
+				2FF9DB7122A765AA00307460 /* ViewController */,
+				2FF9DB7022A7657700307460 /* UI */,
 				2FF9DB6522A763CD00307460 /* Assets.xcassets */,
-				2FF9DB6722A763CD00307460 /* LaunchScreen.storyboard */,
 				2FF9DB6A22A763CD00307460 /* Info.plist */,
 			);
 			path = JJToolKit;
+			sourceTree = "<group>";
+		};
+		2FF9DB7022A7657700307460 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2FF9DB6222A763CC00307460 /* Main.storyboard */,
+				2FF9DB6722A763CD00307460 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2FF9DB7122A765AA00307460 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2FF9DB6022A763CC00307460 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		42FFE1E2B171584C90EC6CAE /* Frameworks */ = {
@@ -359,6 +375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98BH637KF5;
 				INFOPLIST_FILE = JJToolKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,7 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qingdaonews.JJToolKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -378,6 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98BH637KF5;
 				INFOPLIST_FILE = JJToolKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,7 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qingdaonews.JJToolKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
