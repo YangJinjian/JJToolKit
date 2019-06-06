@@ -1,16 +1,24 @@
 PODS:
+  - CryptoSwift (1.0.0)
+  - Kingfisher (5.5.0)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
+  - CryptoSwift (~> 1.0.0)
+  - Kingfisher (~> 5.5.0)
   - SnapKit (~> 4.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CryptoSwift
+    - Kingfisher
     - SnapKit
 
 SPEC CHECKSUMS:
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 8996cefdd374cceb20da3b0113e7ba69bd0dfe47
+PODFILE CHECKSUM: 550c6685f4d33bf76c9432eccfb288687642e830
 
 COCOAPODS: 1.5.3

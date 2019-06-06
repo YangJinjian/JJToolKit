@@ -4,5 +4,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'JJToolKit' do
-    pod 'SnapKit', '~> 4.2.0'  # 使用代码进行AutoLayout布局
+    pod 'SnapKit',      '~> 4.2.0'  # 使用代码进行AutoLayout布局
+    pod 'CryptoSwift',  '~> 1.0.0'  # 数据编码/加密
+    pod 'Kingfisher',   '~> 5.5.0'    # 网络图片加载
 end

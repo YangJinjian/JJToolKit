@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */; };
 		2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB5E22A763CC00307460 /* AppDelegate.swift */; };
 		2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6022A763CC00307460 /* ViewController.swift */; };
 		2FF9DB6422A763CC00307460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6222A763CC00307460 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		130C7A673EAB1C496A87968B /* Pods-JJToolKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.release.xcconfig"; sourceTree = "<group>"; };
+		2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonFunc.swift; sourceTree = "<group>"; };
 		2FF9DB5B22A763CC00307460 /* JJToolKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJToolKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF9DB5E22A763CC00307460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FF9DB6022A763CC00307460 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2F84F85A22A8F02A005BAAFC /* JJCommonFunc */ = {
+			isa = PBXGroup;
+			children = (
+				2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */,
+			);
+			path = JJCommonFunc;
+			sourceTree = "<group>";
+		};
 		2FF9DB5222A763CC00307460 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +93,9 @@
 				2FF9DB5E22A763CC00307460 /* AppDelegate.swift */,
 				2FF9DB7122A765AA00307460 /* ViewController */,
 				2FF9DB7022A7657700307460 /* UI */,
+				2FF9DB7722A7691B00307460 /* JJAdLauncher */,
 				2FF9DB7222A766AA00307460 /* JJConstants */,
+				2F84F85A22A8F02A005BAAFC /* JJCommonFunc */,
 				2FF9DB6522A763CD00307460 /* Assets.xcassets */,
 				2FF9DB6A22A763CD00307460 /* Info.plist */,
 			);
@@ -103,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				2FF9DB6022A763CC00307460 /* ViewController.swift */,
-				2FF9DB7722A7691B00307460 /* JJAdLauncher */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -213,12 +224,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +276,7 @@
 				2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */,
 				2FF9DB7422A7671200307460 /* JJCommonConstant.swift in Sources */,
 				2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */,
+				2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */,
 				2FF9DB7922A7693800307460 /* JJAdLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
