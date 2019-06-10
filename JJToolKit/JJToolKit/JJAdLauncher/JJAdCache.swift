@@ -52,4 +52,8 @@ class JJAdCache: NSObject {
             }
         }
     }
+    
+    func store(image: UIImage, forKey key: String) {
+        cache.store(image, forKey: key)
+    }
 }

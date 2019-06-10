@@ -104,10 +104,13 @@ extension JJAdView {
         static let skipButtonTop = isFullScreenDevice ? 60 : 20
         static let skipButtonTrailing = -20
     }
-    struct JJAdNotificationName {
-        // 当广告从keyWindow移除时发送该通知
-        static let adDidRemoved = NSNotification.Name(rawValue: "JJ_Ad_Did_Removed_From_Superview")
-        // 点击广告时发送该通知
-        static let adDidTapped = NSNotification.Name(rawValue: "JJ_Ad_Did_Tapped")
-    }
+}
+
+struct JJAdNotificationName {
+    // 当广告添加到KeyWindow时发送该通知
+    static let adDidShow = NSNotification.Name(rawValue: "JJ_Ad_Did_Show")
+    // 当广告从KeyWindow移除时发送该通知
+    static let adDidRemoved = NSNotification.Name(rawValue: "JJ_Ad_Did_Removed_From_Key_Window")
+    // 点击广告时发送该通知
+    static let adDidTapped = NSNotification.Name(rawValue: "JJ_Ad_Did_Tapped")
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */; };
 		2F84F85E22A8FE85005BAAFC /* JJAdCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */; };
+		2F875D9A22AE386D008B3EB7 /* JJAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F875D9922AE386D008B3EB7 /* JJAdModel.swift */; };
 		2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB5E22A763CC00307460 /* AppDelegate.swift */; };
 		2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6022A763CC00307460 /* ViewController.swift */; };
 		2FF9DB6422A763CC00307460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6222A763CC00307460 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		130C7A673EAB1C496A87968B /* Pods-JJToolKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.release.xcconfig"; sourceTree = "<group>"; };
 		2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonFunc.swift; sourceTree = "<group>"; };
 		2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdCache.swift; sourceTree = "<group>"; };
+		2F875D9922AE386D008B3EB7 /* JJAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdModel.swift; sourceTree = "<group>"; };
 		2FF9DB5B22A763CC00307460 /* JJToolKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJToolKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF9DB5E22A763CC00307460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FF9DB6022A763CC00307460 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				2FF9DB7822A7693800307460 /* JJAdLauncher.swift */,
 				2FF9DB7A22A76C0F00307460 /* JJAdView.swift */,
 				2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */,
+				2F875D9922AE386D008B3EB7 /* JJAdModel.swift */,
 			);
 			path = JJAdLauncher;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F875D9A22AE386D008B3EB7 /* JJAdModel.swift in Sources */,
 				2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */,
 				2FF9DB7D22A7A66E00307460 /* JJNotificationConstant.swift in Sources */,
 				2FF9DB7B22A76C0F00307460 /* JJAdView.swift in Sources */,
