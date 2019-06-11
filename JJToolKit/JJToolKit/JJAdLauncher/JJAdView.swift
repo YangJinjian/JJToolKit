@@ -82,6 +82,7 @@ class JJAdView: UIView {
         }) { finished in
             if finished {
                 self.removeFromSuperview()
+                print("JJAdNotificationName:adDidRemoved")
                 kNC.post(name: JJAdNotificationName.adDidRemoved, object: nil)
             }
         }
@@ -90,6 +91,7 @@ class JJAdView: UIView {
     @objc private func adTouched(tap: UITapGestureRecognizer) {
         switch tap.state {
         case .recognized:
+            print("JJAdNotificationName:adDidTapped")
             kNC.post(name: JJAdNotificationName.adDidTapped, object: nil)
         default:
             return

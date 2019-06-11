@@ -194,8 +194,9 @@ extension JJAdLauncher {
         static let canSkip = "can_skip"
         static let canTouch = "can_touch"
     }
-    struct JJAdUserDefaultKey {
-        static let kAdSchedulInfo = "K_JJ_Ad_Schedule_Info_Array"
-    }
+}
+
+struct JJAdUserDefaultKey {
+    static let kAdSchedulInfo = "K_JJ_Ad_Schedule_Info_Array"
 }
 

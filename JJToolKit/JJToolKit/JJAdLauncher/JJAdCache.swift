@@ -60,4 +60,11 @@ class JJAdCache: NSObject {
     func deleteCache(withKey key: String) {
         cache.removeImage(forKey: key)
     }
+    
+    func clean() {
+        kUD.removeObject(forKey: JJAdUserDefaultKey.kAdSchedulInfo)
+        kUD.synchronize()
+        cache.clearMemoryCache()
+        cache.clearDiskCache()
+    }
 }
