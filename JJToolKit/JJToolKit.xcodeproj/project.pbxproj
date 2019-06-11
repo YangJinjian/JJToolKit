@@ -10,6 +10,7 @@
 		2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */; };
 		2F84F85E22A8FE85005BAAFC /* JJAdCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */; };
 		2F875D9A22AE386D008B3EB7 /* JJAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F875D9922AE386D008B3EB7 /* JJAdModel.swift */; };
+		2FF4E2E422AF93A000472B79 /* JJExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4E2E322AF93A000472B79 /* JJExtension.swift */; };
 		2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB5E22A763CC00307460 /* AppDelegate.swift */; };
 		2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6022A763CC00307460 /* ViewController.swift */; };
 		2FF9DB6422A763CC00307460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6222A763CC00307460 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonFunc.swift; sourceTree = "<group>"; };
 		2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdCache.swift; sourceTree = "<group>"; };
 		2F875D9922AE386D008B3EB7 /* JJAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdModel.swift; sourceTree = "<group>"; };
+		2FF4E2E322AF93A000472B79 /* JJExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJExtension.swift; sourceTree = "<group>"; };
 		2FF9DB5B22A763CC00307460 /* JJToolKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJToolKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF9DB5E22A763CC00307460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FF9DB6022A763CC00307460 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 			path = JJCommonFunc;
 			sourceTree = "<group>";
 		};
+		2FF4E2E222AF92BC00472B79 /* JJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2FF4E2E322AF93A000472B79 /* JJExtension.swift */,
+			);
+			path = JJExtension;
+			sourceTree = "<group>";
+		};
 		2FF9DB5222A763CC00307460 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 				2FF9DB7722A7691B00307460 /* JJAdLauncher */,
 				2FF9DB7222A766AA00307460 /* JJConstants */,
 				2F84F85A22A8F02A005BAAFC /* JJCommonFunc */,
+				2FF4E2E222AF92BC00472B79 /* JJExtension */,
 				2FF9DB6522A763CD00307460 /* Assets.xcassets */,
 				2FF9DB6A22A763CD00307460 /* Info.plist */,
 			);
@@ -285,6 +296,7 @@
 				2F84F85E22A8FE85005BAAFC /* JJAdCache.swift in Sources */,
 				2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */,
 				2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */,
+				2FF4E2E422AF93A000472B79 /* JJExtension.swift in Sources */,
 				2FF9DB7922A7693800307460 /* JJAdLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -56,4 +56,8 @@ class JJAdCache: NSObject {
     func store(image: UIImage, forKey key: String) {
         cache.store(image, forKey: key)
     }
+    
+    func deleteCache(withKey key: String) {
+        cache.removeImage(forKey: key)
+    }
 }
