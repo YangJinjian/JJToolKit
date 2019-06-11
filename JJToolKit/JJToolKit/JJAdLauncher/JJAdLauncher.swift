@@ -183,7 +183,7 @@ class JJAdLauncher: NSObject {
         return nil
     }
     
-
+}
 
 extension JJAdLauncher {
     struct JJAdInfoDictKey {
