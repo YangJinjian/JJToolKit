@@ -13,6 +13,9 @@ class JJAdView: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if let placeholder = JJAdConfig.shared.placeholderView {
+            self.addSubview(placeholder)
+        }
         // 广告ImageView
         let imageView = UIImageView(frame: .zero)
         adImageView = imageView
@@ -58,7 +61,8 @@ class JJAdView: UIView {
         // 广告ImageView
         adImageView.image = adImage
         adImageView.snp.makeConstraints { (cons) in
-            cons.top.bottom.leading.trailing.equalToSuperview()
+            cons.top.leading.trailing.equalToSuperview()
+            cons.bottom.equalToSuperview().offset(-JJAdConfig.shared.adImageBottomSpace)
         }
         // 跳过按钮
         if canSkip {

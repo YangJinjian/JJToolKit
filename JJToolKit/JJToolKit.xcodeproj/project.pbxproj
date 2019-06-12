@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3C1BFC22B08C3300F16EF3 /* JJAdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3C1BFB22B08C3300F16EF3 /* JJAdConfig.swift */; };
 		2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */; };
 		2F84F85E22A8FE85005BAAFC /* JJAdCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */; };
 		2F875D9A22AE386D008B3EB7 /* JJAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F875D9922AE386D008B3EB7 /* JJAdModel.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		130C7A673EAB1C496A87968B /* Pods-JJToolKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.release.xcconfig"; sourceTree = "<group>"; };
+		2F3C1BFB22B08C3300F16EF3 /* JJAdConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdConfig.swift; sourceTree = "<group>"; };
 		2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonFunc.swift; sourceTree = "<group>"; };
 		2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdCache.swift; sourceTree = "<group>"; };
 		2F875D9922AE386D008B3EB7 /* JJAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdModel.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				2FF9DB7A22A76C0F00307460 /* JJAdView.swift */,
 				2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */,
 				2F875D9922AE386D008B3EB7 /* JJAdModel.swift */,
+				2F3C1BFB22B08C3300F16EF3 /* JJAdConfig.swift */,
 			);
 			path = JJAdLauncher;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				2FF9DB7B22A76C0F00307460 /* JJAdView.swift in Sources */,
 				2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */,
 				2FF9DB7422A7671200307460 /* JJCommonConstant.swift in Sources */,
+				2F3C1BFC22B08C3300F16EF3 /* JJAdConfig.swift in Sources */,
 				2F84F85E22A8FE85005BAAFC /* JJAdCache.swift in Sources */,
 				2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */,
 				2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */,
