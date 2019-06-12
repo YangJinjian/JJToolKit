@@ -18,8 +18,8 @@ class JJAdConfig: NSObject {
     // 广告图距离底部高度
     var adImageBottomSpace: CGFloat = 0
     // 跳过按钮相关
-    var skipWidth: CGFloat = 30
-    var skipHeight: CGFloat = 30
-    var skipTop: CGFloat = isFullScreenDevice ? 60 : 20
-    var skipTrailing: CGFloat = -20
+    var skipWidth: CGFloat = 35
+    var skipHeight: CGFloat = 35
+    var skipTop: CGFloat = isFullScreenDevice ? 65 : 25
+    var skipTrailing: CGFloat = -30
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import UICircularProgressRing
 
 class JJAdView: UIView {
     // MARK: - Init
@@ -24,14 +25,30 @@ class JJAdView: UIView {
         adImageView = imageView
         self.addSubview(adImageView)
         // 跳过按钮
+        skipView = UIView(frame: .zero)
+        skipView.backgroundColor = UIColor.colorWithHexString("#000000", alpha: 0.5)
+        self.addSubview(skipView)
+        let ring = UICircularProgressRing()
+        ring.shouldShowValueText = false
+        ring.style = .ontop
+        ring.animationTimingFunction = .linear // 动画时间线
+        ring.minValue = 0
+        ring.maxValue = 100
+        ring.outerRingWidth = 2
+        ring.outerRingColor = .clear
+        ring.innerRingWidth = 2
+        ring.innerRingColor = UIColor(red: 1, green: 0.42, blue: 0.02, alpha: 1)
+        ring.startAngle = 270
+        ring.endAngle = 270
+        progressView = ring
+        skipView.addSubview(progressView)
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(skip), for: .touchUpInside)
-        button.backgroundColor = .red
         button.setTitle("跳过", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 11)
         skipButton = button
-        self.addSubview(skipButton)
+        skipView.addSubview(skipButton)
         // 添加点击手势
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(adTouched(tap:)))
         self.addGestureRecognizer(tapGesture)
@@ -50,6 +67,8 @@ class JJAdView: UIView {
     }
     // MARK: - Init with image/time/skip/touch
     private(set) var canSkip: Bool = false
+    private var skipView: UIView!
+    private var progressView: UICircularProgressRing!
     private var skipButton: UIButton!
     private(set) var canTouch: Bool = false
     private var tapGesture: UITapGestureRecognizer!
@@ -70,15 +89,29 @@ class JJAdView: UIView {
         }
         // 跳过按钮
         if canSkip {
-            skipButton.snp.makeConstraints { (cons) in
+            skipView.snp.makeConstraints { (cons) in
                 cons.trailing.equalToSuperview().offset(JJAdConfig.shared.skipTrailing)
                 cons.top.equalToSuperview().offset(JJAdConfig.shared.skipTop)
                 cons.width.equalTo(JJAdConfig.shared.skipWidth)
                 cons.height.equalTo(JJAdConfig.shared.skipHeight)
             }
+            skipView.layer.cornerRadius = JJAdConfig.shared.skipWidth / 2
+            skipButton.snp.makeConstraints { (cons) in
+                cons.top.bottom.leading.trailing.equalToSuperview()
+            }
+            progressView.snp.makeConstraints { (cons) in
+                cons.top.bottom.leading.trailing.equalToSuperview()
+            }
+            self.perform(#selector(startProgressAnimation), with: nil, afterDelay: 0.1)
         }
         // 点击手势
         tapGesture.isEnabled = canTouch
+    }
+    
+    @objc private func startProgressAnimation() {
+        progressView.startProgress(to: 100, duration: Double(waitTime)) { [weak self] in
+            self?.skip()
+        }
     }
     // MARK: - Functions
     // 跳过广告
