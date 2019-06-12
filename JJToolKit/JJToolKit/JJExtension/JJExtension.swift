@@ -84,3 +84,22 @@ extension Int {
         }
     }
 }
+
+extension UIImage {
+    // 重设图片大小
+    func resizeImage(size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, kScreenScale)
+        self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        if let resizeImage: UIImage = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return resizeImage
+        }
+        return nil
+    }
+    
+    // 等比率缩放
+    func scaleImage(scale: CGFloat) -> UIImage? {
+        let resize = CGSize(width: self.size.width * scale, height: self.size.height * scale)
+        return resizeImage(size: resize)
+    }
+}

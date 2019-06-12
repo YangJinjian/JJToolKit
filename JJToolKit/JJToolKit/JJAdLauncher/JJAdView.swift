@@ -18,6 +18,9 @@ class JJAdView: UIView {
         }
         // 广告ImageView
         let imageView = UIImageView(frame: .zero)
+        // 裁剪UIImage防止图片变形
+        imageView.contentMode = .top
+        imageView.layer.masksToBounds = true
         adImageView = imageView
         self.addSubview(adImageView)
         // 跳过按钮
@@ -37,7 +40,7 @@ class JJAdView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - Init with image/time
-    private(set) var adImage: UIImage?
+    private(set) var adImage: UIImage!
     private var adImageView: UIImageView!
     private(set) var waitTime: CGFloat = 3
     convenience init(image: UIImage, waitTime: CGFloat) {
@@ -59,7 +62,8 @@ class JJAdView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         // 广告ImageView
-        adImageView.image = adImage
+        let adImageSize = CGSize(width: kScreenWidth, height: kScreenHeight - JJAdConfig.shared.adImageBottomSpace)
+        adImageView.image = scaleImage(adImage, toFitSize: adImageSize)
         adImageView.snp.makeConstraints { (cons) in
             cons.top.leading.trailing.equalToSuperview()
             cons.bottom.equalToSuperview().offset(-JJAdConfig.shared.adImageBottomSpace)
@@ -67,10 +71,10 @@ class JJAdView: UIView {
         // 跳过按钮
         if canSkip {
             skipButton.snp.makeConstraints { (cons) in
-                cons.trailing.equalToSuperview().offset(JJAdViewConstant.skipButtonTrailing)
-                cons.top.equalToSuperview().offset(JJAdViewConstant.skipButtonTop)
-                cons.width.equalTo(JJAdViewConstant.skipButtonWidth)
-                cons.height.equalTo(JJAdViewConstant.skipButtonHeight)
+                cons.trailing.equalToSuperview().offset(JJAdConfig.shared.skipTrailing)
+                cons.top.equalToSuperview().offset(JJAdConfig.shared.skipTop)
+                cons.width.equalTo(JJAdConfig.shared.skipWidth)
+                cons.height.equalTo(JJAdConfig.shared.skipHeight)
             }
         }
         // 点击手势
@@ -101,14 +105,23 @@ class JJAdView: UIView {
             return
         }
     }
-}
-
-extension JJAdView {
-    struct JJAdViewConstant {
-        static let skipButtonWidth = 30
-        static let skipButtonHeight = 30
-        static let skipButtonTop = isFullScreenDevice ? 60 : 20
-        static let skipButtonTrailing = -20
+    // 缩放/裁剪图片适应新的size
+    private func scaleImage(_ image: UIImage, toFitSize size: CGSize) -> UIImage? {
+//        print(image.size, size)
+        // 优先适配图片宽度
+        // 在宽度合适的情况下，如果高度大于所需尺寸，则裁切掉图片底部
+        // 在宽度合适的情况下，如果高度小于所需尺寸，则改为适配图片高度，并裁切掉图片两侧
+        var scale = size.width / image.size.width
+        let fitHeight = image.size.height * size.width / image.size.width
+        if fitHeight < size.height {
+            // 适配图片高度
+            scale = size.height / image.size.height
+        }
+        if let newImage = image.scaleImage(scale: scale) {
+//            print(newImage.size)
+            return newImage
+        }
+        return nil
     }
 }
 
