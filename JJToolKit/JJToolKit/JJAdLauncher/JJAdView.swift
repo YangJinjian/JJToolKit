@@ -35,7 +35,7 @@ class JJAdView: UIView {
         ring.outerRingWidth = 2
         ring.outerRingColor = .clear
         ring.innerRingWidth = 2
-        ring.innerRingColor = UIColor(red: 1, green: 0.42, blue: 0.02, alpha: 1)
+        ring.innerRingColor = UIColor.colorWithHexString("#FF6100")
         ring.startAngle = 270
         ring.endAngle = 270
         progressView = ring
