@@ -11,6 +11,9 @@
 		2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */; };
 		2F84F85E22A8FE85005BAAFC /* JJAdCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */; };
 		2F875D9A22AE386D008B3EB7 /* JJAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F875D9922AE386D008B3EB7 /* JJAdModel.swift */; };
+		2F9FA3EB22B1F6D800807DD8 /* test_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2F3C1BFD22B0DFE100F16EF3 /* test_video.mp4 */; };
+		2F9FA3F422B22BF500807DD8 /* JJAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9FA3F222B22BF500807DD8 /* JJAdViewController.swift */; };
+		2F9FA3F522B22BF500807DD8 /* JJAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F9FA3F322B22BF500807DD8 /* JJAdViewController.xib */; };
 		2FF4E2E422AF93A000472B79 /* JJExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4E2E322AF93A000472B79 /* JJExtension.swift */; };
 		2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB5E22A763CC00307460 /* AppDelegate.swift */; };
 		2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB6022A763CC00307460 /* ViewController.swift */; };
@@ -20,7 +23,6 @@
 		2FF9DB7422A7671200307460 /* JJCommonConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7322A7671200307460 /* JJCommonConstant.swift */; };
 		2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7522A7683A00307460 /* JJDeviceConstant.swift */; };
 		2FF9DB7922A7693800307460 /* JJAdLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7822A7693800307460 /* JJAdLauncher.swift */; };
-		2FF9DB7B22A76C0F00307460 /* JJAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7A22A76C0F00307460 /* JJAdView.swift */; };
 		2FF9DB7D22A7A66E00307460 /* JJNotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF9DB7C22A7A66E00307460 /* JJNotificationConstant.swift */; };
 		46603BB133095CA5B854A3BD /* Pods_JJToolKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		2F84F85B22A8F03C005BAAFC /* JJCommonFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonFunc.swift; sourceTree = "<group>"; };
 		2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdCache.swift; sourceTree = "<group>"; };
 		2F875D9922AE386D008B3EB7 /* JJAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdModel.swift; sourceTree = "<group>"; };
+		2F9FA3F222B22BF500807DD8 /* JJAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdViewController.swift; sourceTree = "<group>"; };
+		2F9FA3F322B22BF500807DD8 /* JJAdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JJAdViewController.xib; sourceTree = "<group>"; };
 		2FF4E2E322AF93A000472B79 /* JJExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJExtension.swift; sourceTree = "<group>"; };
 		2FF9DB5B22A763CC00307460 /* JJToolKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJToolKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF9DB5E22A763CC00307460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +47,6 @@
 		2FF9DB7322A7671200307460 /* JJCommonConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommonConstant.swift; sourceTree = "<group>"; };
 		2FF9DB7522A7683A00307460 /* JJDeviceConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDeviceConstant.swift; sourceTree = "<group>"; };
 		2FF9DB7822A7693800307460 /* JJAdLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdLauncher.swift; sourceTree = "<group>"; };
-		2FF9DB7A22A76C0F00307460 /* JJAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJAdView.swift; sourceTree = "<group>"; };
 		2FF9DB7C22A7A66E00307460 /* JJNotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJNotificationConstant.swift; sourceTree = "<group>"; };
 		7213080577E5E6BAB6FA1D6C /* Pods-JJToolKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJToolKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JJToolKit/Pods-JJToolKit.debug.xcconfig"; sourceTree = "<group>"; };
 		DC65911EBCF2217EE6FCFAB9 /* Pods_JJToolKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJToolKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,10 +155,11 @@
 			isa = PBXGroup;
 			children = (
 				2FF9DB7822A7693800307460 /* JJAdLauncher.swift */,
-				2FF9DB7A22A76C0F00307460 /* JJAdView.swift */,
 				2F84F85D22A8FE85005BAAFC /* JJAdCache.swift */,
 				2F875D9922AE386D008B3EB7 /* JJAdModel.swift */,
 				2F3C1BFB22B08C3300F16EF3 /* JJAdConfig.swift */,
+				2F9FA3F222B22BF500807DD8 /* JJAdViewController.swift */,
+				2F9FA3F322B22BF500807DD8 /* JJAdViewController.xib */,
 			);
 			path = JJAdLauncher;
 			sourceTree = "<group>";
@@ -228,6 +232,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9FA3F522B22BF500807DD8 /* JJAdViewController.xib in Resources */,
+				2F9FA3EB22B1F6D800807DD8 /* test_video.mp4 in Resources */,
 				2FF9DB6922A763CD00307460 /* LaunchScreen.storyboard in Resources */,
 				2FF9DB6622A763CD00307460 /* Assets.xcassets in Resources */,
 				2FF9DB6422A763CC00307460 /* Main.storyboard in Resources */,
@@ -299,7 +305,6 @@
 				2F875D9A22AE386D008B3EB7 /* JJAdModel.swift in Sources */,
 				2FF9DB6122A763CC00307460 /* ViewController.swift in Sources */,
 				2FF9DB7D22A7A66E00307460 /* JJNotificationConstant.swift in Sources */,
-				2FF9DB7B22A76C0F00307460 /* JJAdView.swift in Sources */,
 				2FF9DB5F22A763CC00307460 /* AppDelegate.swift in Sources */,
 				2FF9DB7422A7671200307460 /* JJCommonConstant.swift in Sources */,
 				2F3C1BFC22B08C3300F16EF3 /* JJAdConfig.swift in Sources */,
@@ -307,6 +312,7 @@
 				2FF9DB7622A7683A00307460 /* JJDeviceConstant.swift in Sources */,
 				2F84F85C22A8F03C005BAAFC /* JJCommonFunc.swift in Sources */,
 				2FF4E2E422AF93A000472B79 /* JJExtension.swift in Sources */,
+				2F9FA3F422B22BF500807DD8 /* JJAdViewController.swift in Sources */,
 				2FF9DB7922A7693800307460 /* JJAdLauncher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

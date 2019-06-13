@@ -105,7 +105,7 @@ extension UIImage {
 }
 
 extension FileManager {
-    // 判断是否是文件夹的方法
+    // 判断文件夹是否存在
     static func directoryIsExists(path: String) -> Bool {
         var directoryExists = ObjCBool.init(false)
         let fileExists = FileManager.default.fileExists(atPath: path, isDirectory: &directoryExists)

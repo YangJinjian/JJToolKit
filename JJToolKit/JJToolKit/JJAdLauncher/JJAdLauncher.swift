@@ -23,8 +23,23 @@ class JJAdLauncher: NSObject {
     private func launch(adImage image: UIImage, waitTime time: CGFloat,
                 canSkip skip: Bool, canTouch touch: Bool) {
         DispatchQueue.main.async {
-            let adView = JJAdView(image: image, waitTime: time, canSkip: skip, canTouch: touch)
-            self.show(ad: adView)
+            let adVC = JJAdViewController()
+            self.show(ad: adVC.view)
+            adVC.reset(image: image, videoPath: nil, waitTime: time, canSkip: skip, canTouch: touch)
+        }
+    }
+    
+    // 根据本地视频生成广告图
+    // videoPath: 视频文件路径
+    // time: 等待时间
+    // skip: 是否可以跳过
+    // touch: 是否可以点击
+    private func launch(adVideo videoPath: String, waitTime time: CGFloat,
+                        canSkip skip: Bool, canTouch touch: Bool) {
+        DispatchQueue.main.async {
+            let adVC = JJAdViewController()
+            self.show(ad: adVC.view)
+            adVC.reset(image: nil, videoPath: videoPath, waitTime: time, canSkip: skip, canTouch: touch)
         }
     }
     
@@ -84,29 +99,16 @@ class JJAdLauncher: NSObject {
                         canSkip: canSkip, canTouch: canTouch)
         }
         if let videoName = model.videoName {
-            let key = videoName.md5()
-            JJAdCache.shared.findAdVideo(withKey: key, success: { image in
-                
+            JJAdCache.shared.findAdVideo(withName: videoName, success: { path in
+                self.launch(adVideo: path, waitTime: model.waitTime, canSkip: model.canSkip, canTouch: model.canTouch)
             }) {
                 
             }
-//            JJAdCache.shared.findAdImage(withKey: key, success: { image in
-//                self.launch(adImage: image, waitTime: model.waitTime, canSkip: model.canSkip, canTouch: model.canTouch)
-//            }) {
-//                if let image = UIImage(named: imageName) {
-//                    JJAdCache.shared.store(image: image, forKey: key)
-//                    self.storeAdInfo(withKey: key, waitTime: waitTime,
-//                                     startTime: startTime, endTime: endTime,
-//                                     canSkip: canSkip, canTouch: canTouch)
-//                    self.launch(adImage: image, waitTime: model.waitTime,
-//                                canSkip: model.canSkip, canTouch: model.canTouch)
-//                }
-//            }
         }
     }
     
     // 将广告显示到KeyWindow上
-    func show(ad: JJAdView) {
+    func show(ad: UIView) {
         if let window = UIApplication.shared.keyWindow {
             window.addSubview(ad)
             kNC.post(name: JJAdNotificationName.adDidShow, object: nil)
