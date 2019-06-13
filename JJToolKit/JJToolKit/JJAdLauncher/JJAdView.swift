@@ -32,8 +32,6 @@ class JJAdView: UIView {
         ring.shouldShowValueText = false
         ring.style = .ontop
         ring.animationTimingFunction = .linear // 动画时间线
-        ring.minValue = 0
-        ring.maxValue = 100
         ring.outerRingWidth = 2
         ring.outerRingColor = .clear
         ring.innerRingWidth = 2

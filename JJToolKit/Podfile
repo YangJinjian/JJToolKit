@@ -8,4 +8,5 @@ target 'JJToolKit' do
     pod 'CryptoSwift',              '~> 1.0.0'  # 数据编码/加密
     pod 'Kingfisher',               '~> 5.5.0'  # 网络图片加载
     pod 'UICircularProgressRing',   '~> 6.2.0'  # 圆形进度条
+    pod 'Player',                   '~> 0.13.0' # 视频播放
 end

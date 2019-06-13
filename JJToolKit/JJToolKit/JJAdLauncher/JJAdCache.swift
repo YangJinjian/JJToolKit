@@ -14,13 +14,13 @@ class JJAdCache: NSObject {
     
     // 单例化
     static let shared = JJAdCache()
-    private let cache = ImageCache(name: "JJAdImageCache")
+    private let imageCache = ImageCache(name: "JJAdImageCache")
     // 防止外部使用init方法初始化
     private override init() {}
     
     func findAdImage(withKey key: String, success: @escaping(UIImage)->(), failure: @escaping()->()) {
-        if cache.isCached(forKey: key) {
-            cache.retrieveImage(forKey: key) { result in
+        if imageCache.isCached(forKey: key) {
+            imageCache.retrieveImage(forKey: key) { result in
                 switch result {
                 case .success(let value):
                     if let image = value.image {
@@ -44,7 +44,7 @@ class JJAdCache: NSObject {
             downloader.downloadImage(with: url) { result in
                 switch result {
                 case .success(let value):
-                    self.cache.store(value.image, forKey: md5Str)
+                    self.imageCache.store(value.image, forKey: md5Str)
                     success(value.image)
                 case .failure(let error):
                     print("ImageDownloader下载图片失败：\(error)")
@@ -53,18 +53,23 @@ class JJAdCache: NSObject {
         }
     }
     
+    func findAdVideo(withKey key: String, success: @escaping(UIImage)->(), failure: @escaping()->()) {
+        let cachePath = "\(cacheDir)/JJAdLauncher/VideoCache"
+        print(cachePath)
+    }
+    
     func store(image: UIImage, forKey key: String) {
-        cache.store(image, forKey: key)
+        imageCache.store(image, forKey: key)
     }
     
     func deleteCache(withKey key: String) {
-        cache.removeImage(forKey: key)
+        imageCache.removeImage(forKey: key)
     }
     
     func clean() {
         kUD.removeObject(forKey: JJAdUserDefaultKey.kAdSchedulInfo)
         kUD.synchronize()
-        cache.clearMemoryCache()
-        cache.clearDiskCache()
+        imageCache.clearMemoryCache()
+        imageCache.clearDiskCache()
     }
 }

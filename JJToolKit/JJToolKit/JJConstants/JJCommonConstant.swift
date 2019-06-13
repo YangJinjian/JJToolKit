@@ -17,5 +17,7 @@ let kBuild = kBundle.infoDictionary!["CFBundleShortVersionString"] as! String
 // 文件根路径
 let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 let docURL = kFM.urls(for: .documentDirectory, in: .userDomainMask)[0]
+let libDir = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
+let cacheDir = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
 // 当前时间戳
 let kTime = String(Int(Date().timeIntervalSince1970))

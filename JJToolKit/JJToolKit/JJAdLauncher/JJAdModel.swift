@@ -11,10 +11,12 @@ import UIKit
 struct JJAdModel {
     // imageName: 图片文件名
     // imageUrlStr: 图片地址
+    // videoName: 视频文件名
     // videoUrlStr: 视频地址
     // cacheKey: 缓存Key
     private(set) var imageName: String?
     private(set) var imageUrlStr: String?
+    private(set) var videoName: String?
     private(set) var videoUrlStr: String?
     private(set) var cacheKey: String?
     // startTime: 开始时间
@@ -57,6 +59,15 @@ struct JJAdModel {
         self.init(startTime: startTime, endTime: endTime, waitTime: waitTime,
                   canTouch: canTouch, canSkip: canSkip, showType: showType)
         self.imageUrlStr = imageUrlStr
+    }
+    
+    init(videoName: String?,
+         startTime: TimeInterval?, endTime: TimeInterval?, waitTime: CGFloat = 5,
+         canTouch: Bool = false, canSkip: Bool = false,
+         showType: JJWebMediaLaunchType = .showWhenCached) {
+        self.init(startTime: startTime, endTime: endTime, waitTime: waitTime,
+                  canTouch: canTouch, canSkip: canSkip, showType: showType)
+        self.videoName = videoName
     }
     
     init(videoUrlStr: String?,

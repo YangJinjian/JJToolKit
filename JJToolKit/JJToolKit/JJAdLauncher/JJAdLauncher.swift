@@ -83,6 +83,26 @@ class JJAdLauncher: NSObject {
                         startTime: startTime, endTime: endTime,
                         canSkip: canSkip, canTouch: canTouch)
         }
+        if let videoName = model.videoName {
+            let key = videoName.md5()
+            JJAdCache.shared.findAdVideo(withKey: key, success: { image in
+                
+            }) {
+                
+            }
+//            JJAdCache.shared.findAdImage(withKey: key, success: { image in
+//                self.launch(adImage: image, waitTime: model.waitTime, canSkip: model.canSkip, canTouch: model.canTouch)
+//            }) {
+//                if let image = UIImage(named: imageName) {
+//                    JJAdCache.shared.store(image: image, forKey: key)
+//                    self.storeAdInfo(withKey: key, waitTime: waitTime,
+//                                     startTime: startTime, endTime: endTime,
+//                                     canSkip: canSkip, canTouch: canTouch)
+//                    self.launch(adImage: image, waitTime: model.waitTime,
+//                                canSkip: model.canSkip, canTouch: model.canTouch)
+//                }
+//            }
+        }
     }
     
     // 将广告显示到KeyWindow上

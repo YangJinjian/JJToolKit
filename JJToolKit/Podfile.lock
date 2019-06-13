@@ -1,12 +1,14 @@
 PODS:
   - CryptoSwift (1.0.0)
   - Kingfisher (5.5.0)
+  - Player (0.13.1)
   - SnapKit (4.2.0)
   - UICircularProgressRing (6.2.0)
 
 DEPENDENCIES:
   - CryptoSwift (~> 1.0.0)
   - Kingfisher (~> 5.5.0)
+  - Player (~> 0.13.0)
   - SnapKit (~> 4.2.0)
   - UICircularProgressRing (~> 6.2.0)
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CryptoSwift
     - Kingfisher
+    - Player
     - SnapKit
     - UICircularProgressRing
 
 SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
+  Player: 29186e0d557898b0ebdab42d2e1b47e615838156
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   UICircularProgressRing: 0ff679b05a17f15ad6301a7886686837b8c301a9
 
-PODFILE CHECKSUM: dc0983c981bf3566f7346ba448168e4e5ab7d002
+PODFILE CHECKSUM: 5a5aef1c96cf4b7aca7efc61eb81424599409352
 
 COCOAPODS: 1.5.3
