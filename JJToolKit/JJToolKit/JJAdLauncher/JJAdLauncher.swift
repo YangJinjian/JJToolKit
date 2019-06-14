@@ -14,6 +14,8 @@ class JJAdLauncher: NSObject {
     static let shared = JJAdLauncher()
     // 防止外部使用init方法初始化
     private override init() {}
+    // 记录当前是否可显示广告，保证当前只显示一张广告
+    private(set) var canShowAd = true
     
     // 根据本地图片生成广告图
     // image: 图片
@@ -23,9 +25,11 @@ class JJAdLauncher: NSObject {
     private func launch(adImage image: UIImage, waitTime time: CGFloat,
                 canSkip skip: Bool, canTouch touch: Bool) {
         DispatchQueue.main.async {
-            let adVC = JJAdViewController()
-            self.show(ad: adVC)
-            adVC.reset(image: image, videoPath: nil, waitTime: time, canSkip: skip, canTouch: touch)
+            if self.canShowAd {
+                let adVC = JJAdViewController()
+                self.show(ad: adVC)
+                adVC.reset(image: image, videoPath: nil, waitTime: time, canSkip: skip, canTouch: touch)
+            }
         }
     }
     
@@ -37,9 +41,11 @@ class JJAdLauncher: NSObject {
     private func launch(adVideo videoPath: String, waitTime time: CGFloat,
                         canSkip skip: Bool, canTouch touch: Bool) {
         DispatchQueue.main.async {
-            let adVC = JJAdViewController()
-            self.show(ad: adVC)
-            adVC.reset(image: nil, videoPath: videoPath, waitTime: time, canSkip: skip, canTouch: touch)
+            if self.canShowAd {
+                let adVC = JJAdViewController()
+                self.show(ad: adVC)
+                adVC.reset(image: nil, videoPath: videoPath, waitTime: time, canSkip: skip, canTouch: touch)
+            }
         }
     }
     
@@ -130,7 +136,14 @@ class JJAdLauncher: NSObject {
         if let window = UIApplication.shared.keyWindow, let rootVC = window.rootViewController {
             rootVC.addChild(ad)
             rootVC.view.addSubview(ad.view)
+            canShowAd = false
+            print("JJAdNotificationName:adDidShow")
+            kNC.post(name: JJAdNotificationName.adDidShow, object: nil)
         }
+    }
+    
+    func adDidRemoved() {
+        canShowAd = true
     }
     
     // 将广告信息保存至UserDefault中

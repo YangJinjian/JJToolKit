@@ -114,6 +114,7 @@ class JJAdViewController: UIViewController {
             if finished {
                 self.view.removeFromSuperview()
                 self.removeFromParent()
+                JJAdLauncher.shared.adDidRemoved()
                 print("JJAdNotificationName:adDidRemoved")
                 kNC.post(name: JJAdNotificationName.adDidRemoved, object: nil)
             }
