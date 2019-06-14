@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let _ = JJAdLauncher.shared.checkAdSchedulInfo()
-        let _ = JJAdLauncher.shared.checkAdSchedulInfo()
         
 //        let startTime: Double = 1560314000
 //        let endTime: Double = 1560596650

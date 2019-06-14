@@ -28,7 +28,7 @@ class JJAdLauncher: NSObject {
             if self.canShowAd {
                 let adVC = JJAdViewController()
                 self.show(ad: adVC)
-                adVC.reset(image: image, videoPath: nil, waitTime: time, canSkip: skip, canTouch: touch)
+//                adVC.reset(image: image, videoPath: nil, waitTime: time, canSkip: skip, canTouch: touch)
             }
         }
     }

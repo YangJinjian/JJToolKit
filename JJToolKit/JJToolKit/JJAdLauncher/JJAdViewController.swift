@@ -103,6 +103,12 @@ class JJAdViewController: UIViewController {
         videoPlayer.didMove(toParent: self)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 5秒钟强制移除广告
+        self.perform(#selector(skip), with: nil, afterDelay: 5)
+    }
+    
     // MARK: - Functions
     // 跳过广告
     // 执行动画移出屏幕，动画结束时removeFromSuperview并发送移除通知
