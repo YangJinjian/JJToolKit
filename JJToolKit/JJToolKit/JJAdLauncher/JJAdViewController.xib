@@ -35,10 +35,10 @@
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="L6p-18-Myz">
-                    <rect key="frame" x="57" y="818.5" width="300" height="31.5"/>
+                    <rect key="frame" x="57" y="819.5" width="300" height="31.5"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="copyright" translatesAutoresizingMaskIntoConstraints="NO" id="fZR-ka-Dub">
-                    <rect key="frame" x="57" y="858" width="300" height="11"/>
+                    <rect key="frame" x="57" y="859" width="300" height="11"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="fZR-ka-Dub" secondAttribute="height" multiplier="55:2" id="W1c-sR-1KF"/>
                     </constraints>
@@ -84,7 +84,7 @@
                 <constraint firstItem="fZR-ka-Dub" firstAttribute="top" secondItem="L6p-18-Myz" secondAttribute="bottom" constant="8" id="lSK-Em-UdO"/>
                 <constraint firstAttribute="trailing" secondItem="pTp-gd-LlP" secondAttribute="trailing" id="nBm-j5-vFA"/>
                 <constraint firstAttribute="bottom" secondItem="pTp-gd-LlP" secondAttribute="bottom" constant="100" id="nyP-g4-c2t"/>
-                <constraint firstAttribute="bottom" secondItem="fZR-ka-Dub" secondAttribute="bottom" constant="27" id="pCk-nD-g6i"/>
+                <constraint firstAttribute="bottom" secondItem="fZR-ka-Dub" secondAttribute="bottom" constant="26" id="pCk-nD-g6i"/>
                 <constraint firstItem="pTp-gd-LlP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rbe-Kd-jL0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
