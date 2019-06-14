@@ -54,32 +54,14 @@ class JJAdCache: NSObject {
         }
     }
     
-    func findAdVideo(withName name: String, success: @escaping(String)->(), failure: @escaping()->()) {
-        if FileManager.directoryIsExists(path: videoCachePath) {
-            let key = name.md5()
-            let filePath = videoCachePath + "/\(key)"
-            if kFM.fileExists(atPath: filePath) {
-                // 找到文件
-                success(filePath)
-            } else {
-                // 未找到文件，尝试根据文件名从Bundle中查找，如果找到文件，则复制到Cache文件夹中
-                if let videoPath = kBundle.path(forResource: name, ofType: "mp4") {
-                    do {
-                        try kFM.copyItem(atPath: videoPath, toPath: filePath)
-                    } catch let error {
-                        print("JJAdCache复制文件时出错:\(error.localizedDescription)")
-                    }
-                }
-                failure()
-            }
+    func findAdVideo(withName name: String, fileType type: String,
+                     success: @escaping(String)->(), failure: @escaping()->()) {
+        let filePath = videoCachePath + "/\(name).\(type)"
+        if kFM.fileExists(atPath: filePath) {
+            // 找到文件
+            success(filePath)
         } else {
-            print("JJAdCache没有视频缓存文件夹，创建Cache文件夹")
-            //withIntermediateDirectories为ture表示路径中间如果有不存在的文件夹都会创建
-            do {
-                try kFM.createDirectory(atPath: videoCachePath, withIntermediateDirectories: true, attributes: nil)
-            } catch let error {
-                print("JJAdCache创建Cache文件夹出错:\(error.localizedDescription)")
-            }
+            // 未找到文件
             failure()
         }
     }
@@ -89,6 +71,17 @@ class JJAdCache: NSObject {
     }
     
     func deleteCache(withKey key: String) {
+        if key.contains(".") {
+            // 视频文件名
+            let filePath = videoCachePath + "/\(key)"
+            do {
+                try kFM.removeItem(atPath: filePath)
+            } catch let error {
+                print("JJAdCache删除文件失败:\(error.localizedDescription)\n文件路径:\(filePath)")
+            }
+            return
+        }
+        // 图片缓存
         imageCache.removeImage(forKey: key)
     }
     
@@ -97,5 +90,27 @@ class JJAdCache: NSObject {
         kUD.synchronize()
         imageCache.clearMemoryCache()
         imageCache.clearDiskCache()
+        try! kFM.removeItem(atPath: videoCachePath)
+    }
+    
+    func storeVideoFile(name: String, type: String) {
+        // 如果文件夹不存在，先创建文件夹
+        if !FileManager.directoryIsExists(path: videoCachePath) {
+            do {
+                //withIntermediateDirectories为ture表示路径中间如果有不存在的文件夹都会创建
+                try kFM.createDirectory(atPath: videoCachePath, withIntermediateDirectories: true, attributes: nil)
+            } catch let error {
+                print("JJAdCache创建Cache文件夹出错:\(error.localizedDescription)")
+                return
+            }
+        }
+        let filePath = videoCachePath + "/\(name).\(type)"
+        if let videoPath = kBundle.path(forResource: name, ofType: type) {
+            do {
+                try kFM.copyItem(atPath: videoPath, toPath: filePath)
+            } catch let error {
+                print("JJAdCache复制文件时出错:\(error.localizedDescription)")
+            }
+        }
     }
 }

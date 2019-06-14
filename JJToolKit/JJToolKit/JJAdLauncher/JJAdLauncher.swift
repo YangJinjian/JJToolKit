@@ -24,7 +24,7 @@ class JJAdLauncher: NSObject {
                 canSkip skip: Bool, canTouch touch: Bool) {
         DispatchQueue.main.async {
             let adVC = JJAdViewController()
-            self.show(ad: adVC.view)
+            self.show(ad: adVC)
             adVC.reset(image: image, videoPath: nil, waitTime: time, canSkip: skip, canTouch: touch)
         }
     }
@@ -38,17 +38,19 @@ class JJAdLauncher: NSObject {
                         canSkip skip: Bool, canTouch touch: Bool) {
         DispatchQueue.main.async {
             let adVC = JJAdViewController()
-            self.show(ad: adVC.view)
+            self.show(ad: adVC)
             adVC.reset(image: nil, videoPath: videoPath, waitTime: time, canSkip: skip, canTouch: touch)
         }
     }
     
     // 根据AdModel生成广告图
     // model: AdModel
-    func launch(imageModel model: JJAdModel) {
+    func launch(mediaModel model: JJAdModel) {
+        // 图片缓存
         if let key = model.cacheKey {
             JJAdCache.shared.findAdImage(withKey: key, success: { image in
-                self.launch(adImage: image, waitTime: model.waitTime, canSkip: model.canSkip, canTouch: model.canTouch)
+                self.launch(adImage: image, waitTime: model.waitTime,
+                            canSkip: model.canSkip, canTouch: model.canTouch)
             }) {
                 self.removeAdInfo(withKey: key)
             }
@@ -71,7 +73,8 @@ class JJAdLauncher: NSObject {
                     JJAdCache.shared.store(image: image, forKey: key)
                     self.storeAdInfo(withKey: key, waitTime: waitTime,
                                      startTime: startTime, endTime: endTime,
-                                     canSkip: canSkip, canTouch: canTouch)
+                                     canSkip: canSkip, canTouch: canTouch,
+                                     mediaType: JJAdMediaType.pic.rawValue)
                     self.launch(adImage: image, waitTime: model.waitTime,
                                 canSkip: model.canSkip, canTouch: model.canTouch)
                 }
@@ -85,7 +88,8 @@ class JJAdLauncher: NSObject {
                 JJAdCache.shared.fetchWebImage(withURL: imageUrl) { image in
                     self.storeAdInfo(withKey: key, waitTime: waitTime,
                                      startTime: startTime, endTime: endTime,
-                                     canSkip: canSkip, canTouch: canTouch)
+                                     canSkip: canSkip, canTouch: canTouch,
+                                     mediaType: JJAdMediaType.pic.rawValue)
                     if model.showType == .showWhenCached {
                         self.launch(adImage: image, waitTime: model.waitTime,
                                     canSkip: model.canSkip, canTouch: model.canTouch)
@@ -94,31 +98,46 @@ class JJAdLauncher: NSObject {
             }
         }
         if let videoUrl = model.videoUrlStr {
-            storeAdInfo(withKey: videoUrl.md5(), waitTime: waitTime,
-                        startTime: startTime, endTime: endTime,
-                        canSkip: canSkip, canTouch: canTouch)
+            print(videoUrl)
+//            storeAdInfo(withKey: videoUrl.md5(), waitTime: waitTime,
+//                        startTime: startTime, endTime: endTime,
+//                        canSkip: canSkip, canTouch: canTouch,
+//                        mediaType: JJAdMediaType.video.rawValue)
         }
         if let videoName = model.videoName {
-            JJAdCache.shared.findAdVideo(withName: videoName, success: { path in
-                self.launch(adVideo: path, waitTime: model.waitTime, canSkip: model.canSkip, canTouch: model.canTouch)
+            let components = videoName.components(separatedBy: ".")
+            if components.count != 2 {
+                return
+            }
+            let fileName = components[0]
+            let fileType = components[1]
+            JJAdCache.shared.findAdVideo(withName: fileName, fileType: fileType,
+                                         success: { path in
+                                            self.launch(adVideo: path, waitTime: model.waitTime,
+                                                        canSkip: model.canSkip, canTouch: model.canTouch)
             }) {
-                
+                JJAdCache.shared.storeVideoFile(name: fileName, type: fileType)
+                self.storeAdInfo(withKey: videoName, waitTime: waitTime,
+                                 startTime: startTime, endTime: endTime,
+                                 canSkip: canSkip, canTouch: canTouch,
+                                 mediaType: JJAdMediaType.video.rawValue)
             }
         }
     }
     
     // 将广告显示到KeyWindow上
-    func show(ad: UIView) {
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(ad)
-            kNC.post(name: JJAdNotificationName.adDidShow, object: nil)
+    private func show(ad: JJAdViewController) {
+        if let window = UIApplication.shared.keyWindow, let rootVC = window.rootViewController {
+            rootVC.addChild(ad)
+            rootVC.view.addSubview(ad.view)
         }
     }
     
     // 将广告信息保存至UserDefault中
     private func storeAdInfo(withKey key: String, waitTime wait: String,
                              startTime start: String, endTime end: String,
-                             canSkip skip: String, canTouch touch: String) {
+                             canSkip skip: String, canTouch touch: String,
+                             mediaType type: String) {
         var adInfoDict: [String: String] = [:]
         adInfoDict[JJAdInfoDictKey.adCacheKey] = key
         adInfoDict[JJAdInfoDictKey.startTime] = start
@@ -126,7 +145,7 @@ class JJAdLauncher: NSObject {
         adInfoDict[JJAdInfoDictKey.waitTime] = wait
         adInfoDict[JJAdInfoDictKey.canSkip] = skip
         adInfoDict[JJAdInfoDictKey.canTouch] = touch
-        print(adInfoDict)
+        adInfoDict[JJAdInfoDictKey.mediaType] = type
         var adInfoArray = [adInfoDict]
         if let adSchedulInfo = kUD.object(forKey: JJAdUserDefaultKey.kAdSchedulInfo) as? [[String: String]] {
             adInfoArray += adSchedulInfo
@@ -192,12 +211,22 @@ class JJAdLauncher: NSObject {
                     let touch = randomDict[JJAdInfoDictKey.canTouch],
                     let skip = randomDict[JJAdInfoDictKey.canSkip],
                     let wait = randomDict[JJAdInfoDictKey.waitTime],
+                    let mediaType = randomDict[JJAdInfoDictKey.mediaType],
                     let waitTime = Float(wait) {
-                    let model = JJAdModel(cacheKey: cacheKey,
-                                          waitTime: CGFloat(waitTime),
-                                          canTouch: touch == "1",
-                                          canSkip: skip == "1")
-                    launch(imageModel: model)
+                    if mediaType == JJAdMediaType.pic.rawValue {
+                        let model = JJAdModel(cacheKey: cacheKey,
+                                              waitTime: CGFloat(waitTime),
+                                              canTouch: touch == "1",
+                                              canSkip: skip == "1")
+                        launch(mediaModel: model)
+                    } else if mediaType == JJAdMediaType.video.rawValue {
+                        let model = JJAdModel(videoName: cacheKey, startTime: nil, endTime: nil,
+                                              waitTime: CGFloat(waitTime),
+                                              canTouch: touch == "1",
+                                              canSkip: skip == "1",
+                                              showType: .showNow)
+                        launch(mediaModel: model)
+                    }
                 }
                 return randomDict
             }
@@ -215,6 +244,11 @@ extension JJAdLauncher {
         static let adCacheKey = "ad_cache_key"
         static let canSkip = "can_skip"
         static let canTouch = "can_touch"
+        static let mediaType = "media_type"
+    }
+    enum JJAdMediaType: String {
+        case pic = "picture"
+        case video = "video"
     }
 }
 

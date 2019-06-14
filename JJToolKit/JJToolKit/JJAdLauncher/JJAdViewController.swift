@@ -9,6 +9,7 @@
 import UIKit
 import UICircularProgressRing
 import SnapKit
+import Player
 
 class JJAdViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class JJAdViewController: UIViewController {
     @IBOutlet weak private var skipView: UIView!
     @IBOutlet weak private var skipButton: UIButton!
     private var progressView: UICircularProgressRing!
+    private var videoPlayer: Player!
     
     private(set) var adImage: UIImage! {
         didSet {
@@ -35,10 +37,11 @@ class JJAdViewController: UIViewController {
         didSet {
             if videoPath != nil {
                 resetLogo()
+                self.perform(#selector(playVideo), with: nil, afterDelay: 0.1)
             }
         }
     }
-    private(set) var waitTime: CGFloat = 3 {
+    private(set) var waitTime: CGFloat = 5 {
         didSet {
             self.perform(#selector(startProgressAnimation), with: nil, afterDelay: 0.1)
         }
@@ -63,6 +66,8 @@ class JJAdViewController: UIViewController {
         // Logo宽度为屏幕宽度的74%
         logoTop.constant = kScreenHeight * 0.4
         logoWidth.constant = kScreenWidth * 0.74
+        centerLogo.isHidden = false
+        bottomLogo.isHidden = true
         // 添加点击手势
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(adTouched(tap:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -83,6 +88,19 @@ class JJAdViewController: UIViewController {
         progressView.snp.makeConstraints { (cons) in
             cons.top.bottom.leading.trailing.equalToSuperview()
         }
+        skipView.isHidden = true
+        // 视频播放器
+        videoPlayer = Player()
+        videoPlayer.playerDelegate = self
+        videoPlayer.playbackDelegate = self
+        videoPlayer.fillMode = .resize
+        self.addChild(videoPlayer)
+        self.view.insertSubview(videoPlayer.view, belowSubview: skipView)
+        videoPlayer.view.snp.makeConstraints { (cons) in
+            cons.top.leading.trailing.equalToSuperview()
+            cons.bottom.equalToSuperview().offset(-100)
+        }
+        videoPlayer.didMove(toParent: self)
     }
     
     // MARK: - Functions
@@ -138,6 +156,52 @@ class JJAdViewController: UIViewController {
             centerLogo.isHidden = true
             bottomLogo.isHidden = false
         }
+    }
+    
+    @objc private func playVideo() {
+        videoPlayer.url = URL(fileURLWithPath: videoPath)
+        videoPlayer.playFromBeginning()
+    }
+}
+
+extension JJAdViewController: PlayerDelegate {
+    func playerReady(_ player: Player) {
+        print("Ready")
+    }
+    
+    func playerPlaybackStateDidChange(_ player: Player) {
+        print("PlaybackStateDidChange")
+    }
+    
+    func playerBufferingStateDidChange(_ player: Player) {
+        print("BufferingStateDidChange")
+    }
+    
+    func playerBufferTimeDidChange(_ bufferTime: Double) {
+        print("BufferTimeDidChange")
+    }
+    
+    func player(_ player: Player, didFailWithError error: Error?) {
+        print("didFailWithError")
+        print(error.debugDescription)
+    }
+}
+
+extension JJAdViewController: PlayerPlaybackDelegate {
+    func playerCurrentTimeDidChange(_ player: Player) {
+        print("CurrentTimeDidChange")
+    }
+    
+    func playerPlaybackWillStartFromBeginning(_ player: Player) {
+        print("PlaybackWillStartFromBeginning")
+    }
+    
+    func playerPlaybackDidEnd(_ player: Player) {
+        print("PlaybackDidEnd")
+    }
+    
+    func playerPlaybackWillLoop(_ player: Player) {
+        print("PlaybackWillLoop")
     }
 }
 
